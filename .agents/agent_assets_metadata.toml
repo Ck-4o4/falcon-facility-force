@@ -5,7 +5,7 @@ outputs = []
 id = "DSjol2eOv-sKYc0Vm3cGv"
 uri = "file://artifacts/falcon-facility-force/src/assets/images/hero.png"
 type = "image"
-title = "Cinematic facility team hero"
+title = "generated_image"
 
 [[generated]]
 id = "KfTVZTz-9Py2pcYapl7on"

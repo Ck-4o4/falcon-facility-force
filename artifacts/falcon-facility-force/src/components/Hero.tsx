@@ -1,101 +1,131 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import heroImg from "../assets/images/hero.png";
 
+const words = ["PRECISION", "OPERATIONS.", "PRISTINE", "SPACES."];
+
 export function Hero() {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
   return (
-    <section className="relative min-h-[100dvh] flex items-center justify-center pt-20 overflow-hidden bg-primary">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-primary/80 mix-blend-multiply z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent z-10" />
+    <section ref={ref} style={{ position: "relative" }} className="min-h-[100dvh] flex items-center justify-center pt-20 overflow-hidden bg-primary">
+      {/* Parallax Background */}
+      <motion.div className="absolute inset-0 z-0" style={{ y: bgY }}>
+        <div className="absolute inset-0 bg-primary/75 mix-blend-multiply z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/60 to-transparent z-10" />
         <img
           src={heroImg}
           alt="Professional facility management team"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-center scale-110"
         />
-      </div>
+      </motion.div>
 
-      <div className="container relative z-20 mx-auto px-4 md:px-6">
-        <div className="max-w-4xl">
+      {/* Decorative grid */}
+      <div className="absolute inset-0 z-5 opacity-5"
+        style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)', backgroundSize: '80px 80px' }}
+      />
+
+      <motion.div style={{ opacity }} className="container relative z-20 mx-auto px-4 md:px-6">
+        <div className="max-w-5xl">
+          {/* Overline */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="flex items-center gap-4 mb-8"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white/90 text-sm font-medium mb-6 backdrop-blur-sm">
-              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              Elite Facility Management in India
-            </div>
+            <div className="h-[2px] w-16 bg-accent" />
+            <span className="text-accent/90 font-bold tracking-[0.3em] uppercase text-sm">Falcon Facility Force</span>
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.05] tracking-tight mb-6"
-          >
-            PRECISION <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-yellow-200">
-              OPERATIONS.
-            </span>
-            <br />
-            PRISTINE SPACES.
-          </motion.h1>
+          {/* Headline — word-by-word stagger */}
+          <div className="mb-8">
+            <div className="text-5xl md:text-7xl lg:text-[6.5rem] font-black text-white leading-[1.0] tracking-tight">
+              {["PRECISION", "OPERATIONS."].map((word, i) => (
+                <motion.span
+                  key={word}
+                  className={`inline-block mr-6 ${i === 1 ? "text-transparent bg-clip-text bg-gradient-to-r from-accent to-yellow-200" : ""}`}
+                  initial={{ opacity: 0, y: 60 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: 0.1 + i * 0.12 }}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </div>
+            <div className="text-5xl md:text-7xl lg:text-[6.5rem] font-black text-white leading-[1.0] tracking-tight">
+              {["PRISTINE", "SPACES."].map((word, i) => (
+                <motion.span
+                  key={word}
+                  className="inline-block mr-6"
+                  initial={{ opacity: 0, y: 60 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: 0.35 + i * 0.12 }}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </div>
+          </div>
 
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="text-lg md:text-2xl text-white/80 max-w-2xl font-light mb-10 leading-relaxed"
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.65 }}
+            className="text-lg md:text-xl text-white/75 max-w-2xl font-light mb-12 leading-relaxed"
           >
-            We don't just maintain your facilities; we command them. 
+            We don't just maintain your facilities; we command them.
             Military-grade discipline for corporate offices, hospitals, and industrial sites.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
             className="flex flex-col sm:flex-row gap-4"
           >
             <Button
               size="lg"
-              className="bg-accent text-primary hover:bg-accent/90 h-14 px-8 text-lg rounded-none group"
+              className="bg-accent text-primary hover:bg-yellow-300 h-14 px-10 text-base font-bold rounded-none group transition-all duration-300"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Request a Proposal
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-2" />
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-white/30 text-white hover:bg-white hover:text-primary h-14 px-8 text-lg rounded-none bg-transparent"
+              className="border-white/30 text-white hover:bg-white hover:text-primary h-14 px-10 text-base font-bold rounded-none bg-transparent transition-all duration-300"
               onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Explore Services
             </Button>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Scroll indicator */}
-      <motion.div
+      <motion.button
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
+        transition={{ delay: 1.5, duration: 1 }}
+        onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3 cursor-pointer group"
       >
-        <span className="text-white/50 text-xs font-medium uppercase tracking-widest">Scroll</span>
-        <div className="w-[1px] h-12 bg-white/20 overflow-hidden relative">
-          <motion.div
-            animate={{ y: [0, 48, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
-            className="absolute top-0 left-0 w-full h-1/2 bg-accent"
-          />
-        </div>
-      </motion.div>
+        <span className="text-white/40 text-xs font-bold uppercase tracking-[0.25em] group-hover:text-white/70 transition-colors">Scroll</span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+        >
+          <ChevronDown className="text-white/40 w-6 h-6 group-hover:text-accent transition-colors" />
+        </motion.div>
+      </motion.button>
     </section>
   );
 }
