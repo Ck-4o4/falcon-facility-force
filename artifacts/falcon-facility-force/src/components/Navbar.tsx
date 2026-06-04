@@ -34,8 +34,8 @@ export function Navbar() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <a href="#" className="flex items-center gap-3">
-            <div className="w-20 h-20 rounded-full bg-white shadow-md flex items-center justify-center flex-shrink-0">
-              <img src={logo} alt="Falcon Facility Force" className="w-[90px] h-[90px] object-contain rounded-full" />
+            <div className="w-24 h-24 rounded-full bg-white shadow-md flex items-center justify-center flex-shrink-0 overflow-hidden">
+              <img src={logo} alt="Falcon Facility Force" className="w-[88px] h-[88px] object-contain rounded-full" />
             </div>
           </a>
 
