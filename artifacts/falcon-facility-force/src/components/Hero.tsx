@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
-import heroImg1 from "../assets/images/hero.png";
+import heroImg1 from "../assets/images/hero1.jpg";
 import heroImg2 from "../assets/images/hero2.jpg";
 
 const slides = [
