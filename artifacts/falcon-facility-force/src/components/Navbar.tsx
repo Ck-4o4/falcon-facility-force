@@ -34,10 +34,7 @@ export function Navbar() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <a href="#" className="flex items-center gap-3">
-            <img src={logo} alt="Falcon Facility Force" className="h-12 w-auto object-contain mix-blend-multiply rounded" />
-            <span className={`font-sans font-bold text-xl tracking-tight hidden sm:block ${isScrolled ? "text-primary" : "text-white"}`}>
-              FALCON FACILITY FORCE
-            </span>
+            <img src={logo} alt="Falcon Facility Force" className="h-16 w-auto object-contain mix-blend-multiply rounded" />
           </a>
 
           {/* Desktop Nav */}
