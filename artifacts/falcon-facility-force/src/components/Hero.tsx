@@ -95,19 +95,6 @@ export function Hero() {
         className="container relative z-20 mx-auto px-4 md:px-6"
       >
         <div className="max-w-5xl">
-          {/* Overline */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="flex items-center gap-4 mb-8"
-          >
-            <div className="h-[2px] w-16 bg-accent" />
-            <span className="text-accent/90 font-bold tracking-[0.3em] uppercase text-sm">
-              Falcon Facility Force
-            </span>
-          </motion.div>
-
           {/* Headline */}
           <div className="mb-8">
             <div className="text-5xl md:text-7xl lg:text-[6.5rem] font-black text-white leading-[1.0] tracking-tight">
