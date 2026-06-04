@@ -50,15 +50,15 @@ export function Footer() {
             <ul className="space-y-3 text-gray-400 text-sm">
               <li className="flex items-center gap-2">
                 <span className="text-accent">✆</span>
-                <span>+91 98765 43210</span>
+                <span>+91 84888 80389</span>
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-accent">✉</span>
-                <span>info@falconfacilityforce.com</span>
+                <span>Sales@falconfacilityforce.com</span>
               </li>
               <li className="flex items-start gap-2 pt-2">
                 <span className="text-accent mt-0.5">⊙</span>
-                <span>Mumbai, Maharashtra, India</span>
+                <span>Ahmedabad, Gujarat, India</span>
               </li>
               <li className="mt-4 pt-4 border-t border-gray-800 flex gap-4">
                 <a href="#" className="text-accent hover:text-white transition-colors font-bold">LinkedIn</a>

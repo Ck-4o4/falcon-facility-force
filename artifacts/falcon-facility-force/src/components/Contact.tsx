@@ -6,10 +6,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Phone, Mail, MapPin, MessageSquare } from "lucide-react";
 
 const contactInfo = [
-  { icon: Phone, label: "Direct Line", value: "+91 98765 43210", sub: "Mon–Sat, 9am–7pm" },
-  { icon: Mail, label: "Email", value: "info@falconfacilityforce.com", sub: "Reply within 24 hours" },
-  { icon: MapPin, label: "Head Office", value: "Mumbai, Maharashtra", sub: "India" },
-  { icon: MessageSquare, label: "WhatsApp", value: "+91 98765 43210", sub: "Quick response" },
+  { icon: Phone, label: "Direct Line", value: "+91 84888 80389", sub: "Mon–Sat, 9am–7pm" },
+  { icon: Mail, label: "Email", value: "Sales@falconfacilityforce.com", sub: "Reply within 24 hours" },
+  { icon: MapPin, label: "Head Office", value: "Ahmedabad, Gujarat", sub: "India" },
+  { icon: MessageSquare, label: "WhatsApp", value: "+91 84888 80389", sub: "Quick response" },
 ];
 
 const formVariants = {
