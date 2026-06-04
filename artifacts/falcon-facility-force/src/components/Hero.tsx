@@ -4,10 +4,12 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import heroImg1 from "../assets/images/hero1.jpg";
 import heroImg2 from "../assets/images/hero2.jpg";
+import heroImg3 from "../assets/images/hero3.jpg";
 
 const slides = [
   { src: heroImg1, alt: "Professional facility management team in corporate lobby" },
   { src: heroImg2, alt: "Expert cleaning team at work in a modern office" },
+  { src: heroImg3, alt: "Landscaping and horticulture team maintaining corporate grounds" },
 ];
 
 const INTERVAL = 3000;
