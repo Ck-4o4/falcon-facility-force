@@ -28,10 +28,10 @@ function AnimatedNumber({ target, suffix = "", duration = 2000 }: { target: numb
 }
 
 const stats = [
-  { target: 500, suffix: "+", label: "Enterprise Clients", desc: "served across India" },
-  { target: 15, suffix: "+", label: "Years of Experience", desc: "in facility management" },
-  { target: 40, suffix: "+", label: "Cities Covered", desc: "and growing" },
-  { target: 10000, suffix: "+", label: "Trained Personnel", desc: "deployed nationwide" },
+  { target: 50, suffix: "+", label: "Enterprise Clients", desc: "served across India" },
+  { target: 5, suffix: "+", label: "Years of Experience", desc: "in facility management" },
+  { target: 10, suffix: "+", label: "Cities Covered", desc: "and growing" },
+  { target: 250, suffix: "+", label: "Trained Personnel", desc: "deployed nationwide" },
 ];
 
 const containerVariants = {
