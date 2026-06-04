@@ -90,35 +90,6 @@ export function Clients() {
           </motion.div>
         </div>
       </div>
-
-      {/* Static grid for larger screens / fallback */}
-      <div className="container mx-auto px-4 md:px-6 mt-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border">
-          {clients.map((client, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ type: "spring", stiffness: 70, damping: 18, delay: i * 0.08 }}
-              whileHover={{ y: -4 }}
-              className="group bg-white flex flex-col items-center justify-center gap-5 px-8 py-12 cursor-default"
-            >
-              <div className="w-20 h-20 md:w-24 md:h-24 overflow-hidden border border-border shadow-sm group-hover:shadow-lg transition-all duration-300 group-hover:scale-110 bg-white flex items-center justify-center">
-                <img
-                  src={client.logo}
-                  alt={client.name}
-                  className="w-[85%] h-[85%] object-contain"
-                />
-              </div>
-              <p className="text-xs font-black text-foreground/60 text-center uppercase tracking-widest leading-snug group-hover:text-primary transition-colors duration-300">
-                {client.name}
-              </p>
-              <div className="h-[2px] w-0 bg-accent group-hover:w-full transition-all duration-500 ease-out" />
-            </motion.div>
-          ))}
-        </div>
-      </div>
     </section>
   );
 }
