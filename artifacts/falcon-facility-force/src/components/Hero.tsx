@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import heroImg1 from "../assets/images/hero1.jpg";
 import heroImg2 from "../assets/images/hero2.jpg";
 
@@ -169,26 +169,6 @@ export function Hero() {
         </div>
       </motion.div>
 
-      {/* Scroll indicator */}
-      <motion.button
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        onClick={() =>
-          document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })
-        }
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3 cursor-pointer group"
-      >
-        <span className="text-white/40 text-xs font-bold uppercase tracking-[0.25em] group-hover:text-white/70 transition-colors">
-          Scroll
-        </span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-        >
-          <ChevronDown className="text-white/40 w-6 h-6 group-hover:text-accent transition-colors" />
-        </motion.div>
-      </motion.button>
     </section>
   );
 }
