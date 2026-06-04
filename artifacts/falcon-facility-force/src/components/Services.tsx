@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Sparkles, Zap, Bug, Shield, Users, Coffee, Leaf, Wrench } from "lucide-react";
+import { ArrowUpRight, Sparkles, Droplets, Bug, Shield, Users, Coffee, Leaf, Wrench } from "lucide-react";
 
 const services = [
   { title: "Housekeeping & Cleaning", desc: "Immaculate daily upkeep for corporate and commercial environments.", icon: Sparkles, number: "01" },
-  { title: "Deep Cleaning", desc: "Intensive sanitization and restorative cleaning for high-traffic zones.", icon: Zap, number: "02" },
+  { title: "Deep Cleaning", desc: "Intensive sanitization and restorative cleaning for high-traffic zones.", icon: Droplets, number: "02" },
   { title: "Pest Control", desc: "Proactive and reactive pest management compliant with health standards.", icon: Bug, number: "03" },
   { title: "Security Services", desc: "Highly trained personnel safeguarding your assets, people, and reputation.", icon: Shield, number: "04" },
   { title: "Manpower Staffing", desc: "Reliable, vetted workforce deployment for dynamic operational needs.", icon: Users, number: "05" },
