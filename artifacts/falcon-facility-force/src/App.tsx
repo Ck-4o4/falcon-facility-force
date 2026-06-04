@@ -7,7 +7,7 @@ import { Services } from "./components/Services";
 import { WhyChooseUs } from "./components/WhyChooseUs";
 import { Industries } from "./components/Industries";
 import { Stats } from "./components/Stats";
-import { Testimonials } from "./components/Testimonials";
+import { Clients } from "./components/Clients";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 
@@ -25,7 +25,7 @@ function App() {
             <WhyChooseUs />
             <Industries />
             <Stats />
-            <Testimonials />
+            <Clients />
             <Contact />
           </main>
           <Footer />
