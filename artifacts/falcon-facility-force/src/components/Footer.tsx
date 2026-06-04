@@ -61,8 +61,8 @@ export function Footer() {
                 <span>Ahmedabad, Gujarat, India</span>
               </li>
               <li className="mt-4 pt-4 border-t border-gray-800 flex gap-4">
-                <a href="#" className="text-accent hover:text-white transition-colors font-bold">LinkedIn</a>
-                <a href="#" className="text-accent hover:text-white transition-colors font-bold">Instagram</a>
+                <a href="https://www.instagram.com/falconfacilityforce/" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-white transition-colors font-bold">Instagram</a>
+                <a href="https://www.facebook.com/profile.php?id=61590363931856" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-white transition-colors font-bold">Facebook</a>
               </li>
             </ul>
           </div>
