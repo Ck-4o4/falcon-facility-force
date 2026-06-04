@@ -74,7 +74,7 @@ export function Clients() {
                 key={i}
                 className="flex-shrink-0 w-64 md:w-80 px-8 py-10 flex flex-col items-center justify-center border-r border-border group"
               >
-                <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden flex items-center justify-center bg-white border border-border shadow-sm group-hover:shadow-md transition-shadow duration-300 mb-4">
+                <div className="w-24 h-24 md:w-28 md:h-28 overflow-hidden flex items-center justify-center bg-white border border-border shadow-sm group-hover:shadow-md transition-shadow duration-300 mb-4">
                   <img
                     src={client.logo}
                     alt={client.name}
@@ -104,7 +104,7 @@ export function Clients() {
               whileHover={{ y: -4 }}
               className="group bg-white flex flex-col items-center justify-center gap-5 px-8 py-12 cursor-default"
             >
-              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border border-border shadow-sm group-hover:shadow-lg transition-all duration-300 group-hover:scale-110 bg-white flex items-center justify-center">
+              <div className="w-20 h-20 md:w-24 md:h-24 overflow-hidden border border-border shadow-sm group-hover:shadow-lg transition-all duration-300 group-hover:scale-110 bg-white flex items-center justify-center">
                 <img
                   src={client.logo}
                   alt={client.name}
