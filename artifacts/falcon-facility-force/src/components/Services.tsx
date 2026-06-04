@@ -1,23 +1,15 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
-import housekeepingIcon from "../assets/images/srv-housekeeping.png";
-import deepCleaningIcon from "../assets/images/srv-deep-cleaning.png";
-import pestControlIcon from "../assets/images/srv-pest-control.png";
-import securityIcon from "../assets/images/srv-security.png";
-import staffingIcon from "../assets/images/srv-staffing.png";
-import pantryIcon from "../assets/images/srv-pantry.png";
-import landscapingIcon from "../assets/images/srv-landscaping.png";
-import maintenanceIcon from "../assets/images/srv-maintenance.png";
+import { ArrowUpRight, Sparkles, Zap, Bug, Shield, Users, Coffee, Leaf, Wrench } from "lucide-react";
 
 const services = [
-  { title: "Housekeeping & Cleaning", desc: "Immaculate daily upkeep for corporate and commercial environments.", icon: housekeepingIcon, number: "01" },
-  { title: "Deep Cleaning", desc: "Intensive sanitization and restorative cleaning for high-traffic zones.", icon: deepCleaningIcon, number: "02" },
-  { title: "Pest Control", desc: "Proactive and reactive pest management compliant with health standards.", icon: pestControlIcon, number: "03" },
-  { title: "Security Services", desc: "Highly trained personnel safeguarding your assets, people, and reputation.", icon: securityIcon, number: "04" },
-  { title: "Manpower Staffing", desc: "Reliable, vetted workforce deployment for dynamic operational needs.", icon: staffingIcon, number: "05" },
-  { title: "Pantry & Cafeteria", desc: "Hygienic, efficient management of corporate dining facilities.", icon: pantryIcon, number: "06" },
-  { title: "Landscaping & Horticulture", desc: "Expert groundskeeping to elevate exterior aesthetics of your facility.", icon: landscapingIcon, number: "07" },
-  { title: "Facility Maintenance", desc: "Comprehensive engineering and technical support for building systems.", icon: maintenanceIcon, number: "08" },
+  { title: "Housekeeping & Cleaning", desc: "Immaculate daily upkeep for corporate and commercial environments.", icon: Sparkles, number: "01" },
+  { title: "Deep Cleaning", desc: "Intensive sanitization and restorative cleaning for high-traffic zones.", icon: Zap, number: "02" },
+  { title: "Pest Control", desc: "Proactive and reactive pest management compliant with health standards.", icon: Bug, number: "03" },
+  { title: "Security Services", desc: "Highly trained personnel safeguarding your assets, people, and reputation.", icon: Shield, number: "04" },
+  { title: "Manpower Staffing", desc: "Reliable, vetted workforce deployment for dynamic operational needs.", icon: Users, number: "05" },
+  { title: "Pantry & Cafeteria", desc: "Hygienic, efficient management of corporate dining facilities.", icon: Coffee, number: "06" },
+  { title: "Landscaping & Horticulture", desc: "Expert groundskeeping to elevate exterior aesthetics of your facility.", icon: Leaf, number: "07" },
+  { title: "Facility Maintenance", desc: "Comprehensive engineering and technical support for building systems.", icon: Wrench, number: "08" },
 ];
 
 const containerVariants = {
@@ -33,7 +25,6 @@ const itemVariants = {
 export function Services() {
   return (
     <section id="services" className="py-24 md:py-36 bg-gray-50 relative overflow-hidden">
-      {/* Large background text */}
       <div className="absolute -bottom-6 -right-4 text-[180px] md:text-[260px] font-black text-primary/[0.03] leading-none select-none pointer-events-none uppercase tracking-tighter">
         SERVICES
       </div>
@@ -87,17 +78,11 @@ export function Services() {
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
               className="group relative flex flex-col bg-white p-8 md:p-10 cursor-default"
             >
-              {/* Service number */}
-              <div className="text-5xl font-black text-primary/8 mb-6 leading-none select-none">{service.number}</div>
+              <div className="text-5xl font-black text-primary/[0.06] mb-6 leading-none select-none">{service.number}</div>
 
               {/* Icon */}
-              <div className="mb-6 w-16 h-16 relative overflow-hidden">
-                <div className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors duration-300 rounded" />
-                <img
-                  src={service.icon}
-                  alt={service.title}
-                  className="w-full h-full object-contain p-1 transition-transform duration-500 group-hover:scale-110"
-                />
+              <div className="mb-6 w-16 h-16 bg-primary flex items-center justify-center group-hover:bg-accent transition-colors duration-300">
+                <service.icon className="w-8 h-8 text-white group-hover:text-primary transition-colors duration-300" strokeWidth={1.5} />
               </div>
 
               <h3 className="text-lg font-black mb-3 group-hover:text-primary transition-colors duration-200 leading-tight">
@@ -109,7 +94,6 @@ export function Services() {
                 Learn more <ArrowUpRight className="w-3.5 h-3.5" />
               </div>
 
-              {/* Bottom accent bar */}
               <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-accent group-hover:w-full transition-all duration-500 ease-out" />
             </motion.div>
           ))}
