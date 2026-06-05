@@ -16,7 +16,7 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, x: -30 },
-  visible: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 70, damping: 18 } },
+  visible: { opacity: 1, x: 0, transition: { type: "spring" as const, stiffness: 70, damping: 18 } },
 };
 
 export function WhyChooseUs() {
