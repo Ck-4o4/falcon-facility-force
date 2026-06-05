@@ -144,7 +144,7 @@ export function Contact() {
                   1. Visit https://web3forms.com/ and enter your email to get a free Access Key.
                   2. Replace "YOUR_ACCESS_KEY_HERE" in the value below with your key.
                 */}
-                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+                <input type="hidden" name="access_key" value="7711f400-33a9-4cb5-8042-354652984bec" />
 
                 <motion.div variants={fieldVariants} className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
