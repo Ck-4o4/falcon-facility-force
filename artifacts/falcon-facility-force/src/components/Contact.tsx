@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,6 +24,39 @@ const fieldVariants = {
 };
 
 export function Contact() {
+  const [selectedService, setSelectedService] = useState<string>("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    const formData = new FormData(e.currentTarget);
+    formData.append("subject", "New Lead - Falcon Facility Force");
+    formData.append("from_name", "Falcon Facility Force Website");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await response.json();
+      if (data.success) {
+        setSubmitStatus("success");
+        e.currentTarget.reset();
+        setSelectedService("");
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-24 md:py-36 bg-white overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
@@ -103,33 +137,40 @@ export function Contact() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-40px" }}
                 className="space-y-6"
-                onSubmit={(e) => e.preventDefault()}
+                onSubmit={handleSubmit}
               >
+                {/* 
+                  To connect Web3Forms to your email (Sales@falconfacilityforce.com):
+                  1. Visit https://web3forms.com/ and enter your email to get a free Access Key.
+                  2. Replace "YOUR_ACCESS_KEY_HERE" in the value below with your key.
+                */}
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+
                 <motion.div variants={fieldVariants} className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-xs font-black text-foreground uppercase tracking-widest">Contact Name</label>
-                    <Input placeholder="Your full name" className="bg-white rounded-none border-gray-300 h-12 focus:border-primary transition-colors" />
+                    <Input name="name" required placeholder="Your full name" className="bg-white rounded-none border-gray-300 h-12 focus:border-primary transition-colors" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-black text-foreground uppercase tracking-widest">Company</label>
-                    <Input placeholder="Company name" className="bg-white rounded-none border-gray-300 h-12 focus:border-primary transition-colors" />
+                    <Input name="company" placeholder="Company name" className="bg-white rounded-none border-gray-300 h-12 focus:border-primary transition-colors" />
                   </div>
                 </motion.div>
 
                 <motion.div variants={fieldVariants} className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-xs font-black text-foreground uppercase tracking-widest">Email Address</label>
-                    <Input type="email" placeholder="you@company.com" className="bg-white rounded-none border-gray-300 h-12 focus:border-primary transition-colors" />
+                    <Input type="email" name="email" required placeholder="you@company.com" className="bg-white rounded-none border-gray-300 h-12 focus:border-primary transition-colors" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-black text-foreground uppercase tracking-widest">Phone Number</label>
-                    <Input type="tel" placeholder="+91 98765 43210" className="bg-white rounded-none border-gray-300 h-12 focus:border-primary transition-colors" />
+                    <Input type="tel" name="phone" placeholder="+91 98765 43210" className="bg-white rounded-none border-gray-300 h-12 focus:border-primary transition-colors" />
                   </div>
                 </motion.div>
 
                 <motion.div variants={fieldVariants} className="space-y-2">
                   <label className="text-xs font-black text-foreground uppercase tracking-widest">Service Required</label>
-                  <Select>
+                  <Select onValueChange={setSelectedService} value={selectedService}>
                     <SelectTrigger className="bg-white rounded-none border-gray-300 h-12">
                       <SelectValue placeholder="Select a service" />
                     </SelectTrigger>
@@ -145,22 +186,49 @@ export function Contact() {
                       <SelectItem value="comprehensive">Comprehensive FM Package</SelectItem>
                     </SelectContent>
                   </Select>
+                  <input type="hidden" name="service" value={selectedService} />
                 </motion.div>
 
                 <motion.div variants={fieldVariants} className="space-y-2">
                   <label className="text-xs font-black text-foreground uppercase tracking-widest">Operational Details</label>
                   <Textarea
+                    name="message"
+                    required
                     placeholder="Briefly describe your facility size, location, and key requirements..."
                     className="bg-white rounded-none border-gray-300 min-h-[120px] focus:border-primary transition-colors"
                   />
                 </motion.div>
 
                 <motion.div variants={fieldVariants}>
-                  <Button className="w-full bg-primary text-white hover:bg-primary/90 h-14 text-base font-black rounded-none tracking-wide transition-all duration-300 group">
-                    Submit Request
+                  <Button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="w-full bg-primary text-white hover:bg-primary/90 h-14 text-base font-black rounded-none tracking-wide transition-all duration-300 group"
+                  >
+                    {isSubmitting ? "Sending Request..." : "Submit Request"}
                     <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                   </Button>
                 </motion.div>
+
+                {submitStatus === "success" && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-medium"
+                  >
+                    Thank you! Your request has been sent successfully. We will get back to you shortly.
+                  </motion.div>
+                )}
+
+                {submitStatus === "error" && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="p-4 bg-rose-50 border border-rose-200 text-rose-800 text-sm font-medium"
+                  >
+                    Something went wrong. Please check your network or email us directly at Sales@falconfacilityforce.com.
+                  </motion.div>
+                )}
               </motion.form>
             </motion.div>
           </div>
