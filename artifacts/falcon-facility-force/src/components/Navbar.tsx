@@ -34,8 +34,20 @@ export function Navbar() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <a href="#" className="flex items-center gap-3">
-            <div className="w-24 h-24 rounded-full bg-white shadow-md flex items-center justify-center flex-shrink-0 overflow-hidden">
-              <img src={logo} alt="Falcon Facility Force" className="w-[88px] h-[88px] object-contain rounded-full" />
+            <div className={`rounded-full bg-white shadow-md flex items-center justify-center flex-shrink-0 overflow-hidden transition-all duration-300 ${
+              isScrolled
+                ? "w-12 h-12 md:w-14 md:h-14"
+                : "w-14 h-14 md:w-20 md:h-20"
+            }`}>
+              <img 
+                src={logo} 
+                alt="Falcon Facility Force" 
+                className={`object-contain rounded-full transition-all duration-300 ${
+                  isScrolled
+                    ? "w-[42px] h-[42px] md:w-[50px] md:h-[50px]"
+                    : "w-[50px] h-[50px] md:w-[72px] md:h-[72px]"
+                }`} 
+              />
             </div>
           </a>
 
