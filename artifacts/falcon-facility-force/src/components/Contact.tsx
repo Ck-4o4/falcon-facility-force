@@ -7,10 +7,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Phone, Mail, MapPin, MessageSquare } from "lucide-react";
 
 const contactInfo = [
-  { icon: Phone, label: "Direct Line", value: "+91 84888 80389", sub: "Mon–Sat, 9am–7pm" },
+  { icon: Phone, label: "Direct Line", value: "+91 97248 64640 / +91 70888 88879", sub: "Mon–Sat, 9am–7pm" },
   { icon: Mail, label: "Email", value: "Sales@falconfacilityforce.com", sub: "Reply within 24 hours" },
   { icon: MapPin, label: "Head Office", value: "Ahmedabad, Gujarat", sub: "India" },
-  { icon: MessageSquare, label: "WhatsApp", value: "+91 84888 80389", sub: "Quick response" },
+  { icon: MessageSquare, label: "WhatsApp", value: "+91 97248 64640 / +91 70888 88879", sub: "Quick response" },
 ];
 
 const formVariants = {
@@ -164,7 +164,7 @@ export function Contact() {
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-black text-foreground uppercase tracking-widest">Phone Number</label>
-                    <Input type="tel" name="phone" placeholder="+91 98765 43210" className="bg-white rounded-none border-gray-300 h-12 focus:border-primary transition-colors" />
+                    <Input type="tel" name="phone" placeholder="+91 97248 64640" className="bg-white rounded-none border-gray-300 h-12 focus:border-primary transition-colors" />
                   </div>
                 </motion.div>
 

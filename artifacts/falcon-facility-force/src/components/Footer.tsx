@@ -50,7 +50,7 @@ export function Footer() {
             <ul className="space-y-3 text-gray-400 text-sm">
               <li className="flex items-center gap-2">
                 <span className="text-accent">✆</span>
-                <span>+91 84888 80389</span>
+                <span>+91 97248 64640 / +91 70888 88879</span>
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-accent">✉</span>
